@@ -159,7 +159,9 @@ namespace Icebreaker.Services
             try
             {
                 var httpClient = new HttpClient();
-                HttpContent content = new StringContent("test");
+                HttpContent content = new StringContent("test to check if that work");
+                Dictionary<string, string> requestBody = new Dictionary<string, string>();
+
                 //content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
                 var result = await httpClient.PostAsync("https://prod-97.westeurope.logic.azure.com:443/workflows/6c1932f32ec84d8983c688cc75e4289e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rtQM6TaIseUI_nOyZS53TVYAJj_HannFwghFChs72H0", content);
 

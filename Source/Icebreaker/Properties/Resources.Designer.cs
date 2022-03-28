@@ -187,7 +187,7 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Hello&lt;/strong&gt;, It&apos;s time for a match!.
+        ///   Looks up a localized string similar to Hello, It&apos;s time for a match!.
         /// </summary>
         public static string MatchUpCardTitleContent {
             get {
