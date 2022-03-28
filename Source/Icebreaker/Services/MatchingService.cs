@@ -156,11 +156,19 @@ namespace Icebreaker.Services
                 this.conversationHelper.NotifyUserAsync(this.botAdapter, teamModel.ServiceUrl, teamModel.TeamId, MessageFactory.Attachment(cardForPerson2), teamsPerson2, teamModel.TenantId, cancellationToken));
 
 
-            var httpClient = new HttpClient();
-            HttpContent content = new StringContent("test");
-            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-            var result = await httpClient.PostAsync("https://prod-97.westeurope.logic.azure.com:443/workflows/6c1932f32ec84d8983c688cc75e4289e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rtQM6TaIseUI_nOyZS53TVYAJj_HannFwghFChs72H0", content);
-            
+            try
+            {
+                var httpClient = new HttpClient();
+                HttpContent content = new StringContent("test");
+                //content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                var result = await httpClient.PostAsync("https://prod-97.westeurope.logic.azure.com:443/workflows/6c1932f32ec84d8983c688cc75e4289e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rtQM6TaIseUI_nOyZS53TVYAJj_HannFwghFChs72H0", content);
+
+            }
+            catch (Exception e) {
+                this.telemetryClient.TrackTrace($"Error calling HTTP custom endpoint");
+            }
+
+
 
             return notifyResults.Count(wasNotified => wasNotified);
         }
