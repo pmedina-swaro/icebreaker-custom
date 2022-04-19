@@ -178,7 +178,7 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are matched with - **{2}**..
+        ///   Looks up a localized string similar to You are matched with **{2}**..
         /// </summary>
         public static string MatchUpCardMatchedText {
             get {
