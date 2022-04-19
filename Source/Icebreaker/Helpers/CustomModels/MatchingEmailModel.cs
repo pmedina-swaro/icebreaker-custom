@@ -13,16 +13,7 @@ namespace Icebreaker.Helpers.CustomModels
         public string Recipient1 { get; set; }
         [JsonProperty("Recipient2")]
         public string Recipient2 { get; set; }
-
-        [JsonProperty("Subject")]
-        public string Subject{ get; set; }
-
-        [JsonProperty("Content1")]
-        public string Content1{ get; set; }
-
-        [JsonProperty("Content2")]
-        public string Content2 { get; set; }
-
-
+        [JsonProperty("TeamName")]
+        public string TeamName { get; set; }
     }
 }

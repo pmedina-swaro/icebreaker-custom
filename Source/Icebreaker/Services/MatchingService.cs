@@ -164,27 +164,11 @@ namespace Icebreaker.Services
                 var httpClient = new HttpClient();
                 Dictionary<string, string> requestBody = new Dictionary<string, string>();
 
-                var person1Name = String.Concat(teamsPerson1.Name);
-                var person2Name = String.Concat(teamsPerson2.Name);
-                // Intro text
-                var contentPerson1Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName, teamName);
-                var contentPerson2Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName, teamName);
-
-                // Part 1: includes matched person
-                var contentPerson1Part2 = String.Format(Resources.SwaroCustomMatchEmailContentPart2, person2Name);
-                var contentPerson2Part2 = String.Format(Resources.SwaroCustomMatchEmailContentPart2, person1Name);
-
-                // Part 2: Includes text to let user check the icebreaker app in teams client
-                var contentPerson1Part3 = Resources.SwaroCustomMatchEmailContentPart3;
-                var contentPerson2Part3 = Resources.SwaroCustomMatchEmailContentPart3;
-
                 MatchingEmailModel matchingEmailModel = new MatchingEmailModel()
                 {
                     Recipient1 = teamsPerson1.Email,
                     Recipient2 = teamsPerson2.Email,
-                    Subject = Resources.SwaroCustomMatchEmailSubject,
-                    Content1 = String.Concat(contentPerson1Part1, contentPerson1Part2, contentPerson1Part3),
-                    Content2 = String.Concat(contentPerson2Part1, contentPerson2Part2, contentPerson2Part3)
+                    TeamName = teamName,
                 };
 
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(matchingEmailModel));
