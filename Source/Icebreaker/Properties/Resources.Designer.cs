@@ -160,7 +160,7 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hi there again, I&apos;m {0} in {1}. A bot that pairs you with a new coworker to meet each 3 weeks. This week your match is {2}..
+        ///   Looks up a localized string similar to The match has been made by {0} in team **{1}**. A connection with a new colleague is created every 3 weeks. You are matched with **{2}**..
         /// </summary>
         public static string MatchUpCardContentPart1 {
             get {
@@ -169,7 +169,7 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If you&apos;ve got the inclination, set something up. See, meeting people *is* easy!.
+        ///   Looks up a localized string similar to To make the connection as easy as possible here are some options:.
         /// </summary>
         public static string MatchUpCardContentPart2 {
             get {
@@ -178,7 +178,7 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You&apos;ve been matched with {0}..
+        ///   Looks up a localized string similar to You are matched with - **{2}**..
         /// </summary>
         public static string MatchUpCardMatchedText {
             get {
@@ -187,7 +187,7 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello, It&apos;s time for a match!.
+        ///   Looks up a localized string similar to It is time to meet another colleague and connect as one..
         /// </summary>
         public static string MatchUpCardTitleContent {
             get {
