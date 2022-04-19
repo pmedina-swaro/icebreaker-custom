@@ -277,7 +277,7 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The match has been made by {0}. A connection with a new colleague is created every three weeks..
+        ///   Looks up a localized string similar to The match has been made by {0} in team {1}. A connection with a new colleague is created every three weeks..
         /// </summary>
         public static string SwaroCustomMatchEmailContentPart1 {
             get {

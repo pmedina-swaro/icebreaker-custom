@@ -164,11 +164,11 @@ namespace Icebreaker.Services
                 var httpClient = new HttpClient();
                 Dictionary<string, string> requestBody = new Dictionary<string, string>();
 
-                var person1Name = String.Concat(teamsPerson1.Name, " ", teamsPerson1.Surname);
-                var person2Name = String.Concat(teamsPerson2.Name, " ", teamsPerson2.Surname);
+                var person1Name = String.Concat(teamsPerson1.Name);
+                var person2Name = String.Concat(teamsPerson2.Name);
                 // Intro text
-                var contentPerson1Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName);
-                var contentPerson2Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName);
+                var contentPerson1Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName, teamName);
+                var contentPerson2Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName, teamName);
 
                 // Part 1: includes matched person
                 var contentPerson1Part2 = String.Format(Resources.SwaroCustomMatchEmailContentPart2, person2Name);
@@ -184,7 +184,7 @@ namespace Icebreaker.Services
                     Recipient2 = teamsPerson2.Email,
                     Subject = Resources.SwaroCustomMatchEmailSubject,
                     Content1 = String.Concat(contentPerson1Part1, contentPerson1Part2, contentPerson1Part3),
-                    Content2 = String.Concat(contentPerson2Part1, contentPerson2Part2, contentPerson2Part3),
+                    Content2 = String.Concat(contentPerson2Part1, contentPerson2Part2, contentPerson2Part3)
                 };
 
                 HttpContent content = new StringContent(JsonConvert.SerializeObject(matchingEmailModel));
