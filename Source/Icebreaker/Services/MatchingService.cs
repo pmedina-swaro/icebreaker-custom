@@ -164,8 +164,8 @@ namespace Icebreaker.Services
                 var httpClient = new HttpClient();
                 Dictionary<string, string> requestBody = new Dictionary<string, string>();
 
-                var person1Name = teamsPerson1.GivenName;
-                var person2Name = teamsPerson2.GivenName;
+                var person1Name = teamsPerson1.Name;
+                var person2Name = teamsPerson2.Name;
                 // Intro text
                 var contentPerson1Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName);
                 var contentPerson2Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName);
