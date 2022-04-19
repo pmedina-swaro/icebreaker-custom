@@ -376,6 +376,7 @@
     <Compile Include="Helpers\AdaptiveCard.cs" />
     <Compile Include="Helpers\AdaptiveCards\AdaptiveCardBase.cs" />
     <Compile Include="Helpers\CardTemplateHelper.cs" />
+    <Compile Include="Helpers\CustomModels\MatchingEmailModel.cs" />
     <Compile Include="Helpers\MatchingActions.cs" />
     <Compile Include="Helpers\SecretsHelper.cs" />
     <Compile Include="Interfaces\IMatchingService.cs" />

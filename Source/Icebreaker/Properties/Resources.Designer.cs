@@ -277,6 +277,42 @@ namespace Icebreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The match has been made by {0}. A connection with a new colleague is created every three weeks..
+        /// </summary>
+        public static string SwaroCustomMatchEmailContentPart1 {
+            get {
+                return ResourceManager.GetString("SwaroCustomMatchEmailContentPart1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are matched with {0}..
+        /// </summary>
+        public static string SwaroCustomMatchEmailContentPart2 {
+            get {
+                return ResourceManager.GetString("SwaroCustomMatchEmailContentPart2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check the IceBreaker bot notifications in your MS Teams App for more information..
+        /// </summary>
+        public static string SwaroCustomMatchEmailContentPart3 {
+            get {
+                return ResourceManager.GetString("SwaroCustomMatchEmailContentPart3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Act as one - Connect as one: It is time to meet another colleague and connect as one..
+        /// </summary>
+        public static string SwaroCustomMatchEmailSubject {
+            get {
+                return ResourceManager.GetString("SwaroCustomMatchEmailSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Take a tour.
         /// </summary>
         public static string TakeATourButtonText {

@@ -213,6 +213,18 @@
     <value>Hi there!</value>
     <comment>This is the text for the salutation in the adaptive cards when the bot is installed to a team and also when new users are added to the team</comment>
   </data>
+  <data name="SwaroCustomMatchEmailContentPart1" xml:space="preserve">
+    <value>The match has been made by {0}. A connection with a new colleague is created every three weeks.</value>
+  </data>
+  <data name="SwaroCustomMatchEmailContentPart2" xml:space="preserve">
+    <value>You are matched with {0}.</value>
+  </data>
+  <data name="SwaroCustomMatchEmailContentPart3" xml:space="preserve">
+    <value>Check the IceBreaker bot notifications in your MS Teams App for more information.</value>
+  </data>
+  <data name="SwaroCustomMatchEmailSubject" xml:space="preserve">
+    <value>Act as one - Connect as one: It is time to meet another colleague and connect as one.</value>
+  </data>
   <data name="TakeATourButtonText" xml:space="preserve">
     <value>Take a tour</value>
     <comment>The text for the button which launches a tour when clicked</comment>

@@ -14,13 +14,16 @@ namespace Icebreaker.Services
     using System.Threading.Tasks;
     using Icebreaker.Helpers;
     using Icebreaker.Helpers.AdaptiveCards;
+    using Icebreaker.Helpers.CustomModels;
     using Icebreaker.Interfaces;
+    using Icebreaker.Properties;
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.DataContracts;
     using Microsoft.Azure;
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Schema;
     using Microsoft.Bot.Schema.Teams;
+    using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
     /// <summary>
@@ -159,19 +162,39 @@ namespace Icebreaker.Services
             try
             {
                 var httpClient = new HttpClient();
-                HttpContent content = new StringContent("test to check if that work");
                 Dictionary<string, string> requestBody = new Dictionary<string, string>();
 
-                //content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                var person1Name = teamsPerson1.GivenName;
+                var person2Name = teamsPerson2.GivenName;
+                // Intro text
+                var contentPerson1Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName);
+                var contentPerson2Part1 = String.Format(Resources.SwaroCustomMatchEmailContentPart1, this.botDisplayName);
+
+                // Part 1: includes matched person
+                var contentPerson1Part2 = String.Format(Resources.SwaroCustomMatchEmailContentPart2, person2Name);
+                var contentPerson2Part2 = String.Format(Resources.SwaroCustomMatchEmailContentPart2, person1Name);
+
+                // Part 2: Includes text to let user check the icebreaker app in teams client
+                var contentPerson1Part3 = Resources.SwaroCustomMatchEmailContentPart3;
+                var contentPerson2Part3 = Resources.SwaroCustomMatchEmailContentPart3;
+
+                MatchingEmailModel matchingEmailModel = new MatchingEmailModel()
+                {
+                    Recipient1 = teamsPerson1.Email,
+                    Recipient2 = teamsPerson2.Email,
+                    Subject = Resources.SwaroCustomMatchEmailSubject,
+                    Content1 = String.Concat(contentPerson1Part1, contentPerson1Part2, contentPerson1Part3),
+                    Content2 = String.Concat(contentPerson2Part1, contentPerson2Part2, contentPerson2Part3),
+                };
+
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(matchingEmailModel));
                 var result = await httpClient.PostAsync("https://prod-97.westeurope.logic.azure.com:443/workflows/6c1932f32ec84d8983c688cc75e4289e/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rtQM6TaIseUI_nOyZS53TVYAJj_HannFwghFChs72H0", content);
 
             }
             catch (Exception e) {
                 this.telemetryClient.TrackTrace($"Error calling HTTP custom endpoint");
             }
-
-
-
+            
             return notifyResults.Count(wasNotified => wasNotified);
         }
 
